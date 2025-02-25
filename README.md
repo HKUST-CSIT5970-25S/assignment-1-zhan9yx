@@ -32,6 +32,7 @@
     | `c5d.large` |   8042 MIPS	              |   14734.68 MB/s                 |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI.
+    
     > The performance measurements indicate that as the instance type increases from t2.micro to c5d.large, both CPU and memory performance improve significantly. Specifically, the t2.micro instance has a CPU performance of 3940 MIPS and a memory performance of 11154.55 MB/s, while the t2.medium instance shows a slight increase to 4080 MIPS and 11298.89 MB/s. The c5d.large instance demonstrates a substantial enhancement, achieving 8042 MIPS in CPU performance and 14734.68 MB/s in memory performance. This trend clearly shows that the performance of EC2 instances does increase commensurate with the increase in the number of vCPUs and memory resources.
 
 ## Question 2: Measure the EC2 Network performance
