@@ -17,9 +17,9 @@
 
     > The measurement tool used for the tests is the Phoronix Test Suite. For CPU performance, I executed the command phoronix-test-suite run pts/compress-7zip, which assesses the CPU's ability to perform compression tasks using the 7-Zip algorithm. This test is relevant because compression is a CPU-intensive operation, and the results are measured in MIPS (Million Instructions Per Second), providing a clear indication of processing capability.
 
-For memory performance, I used the command phoronix-test-suite run pts/ramspeed, specifically testing the "Copy Integer" benchmark. This benchmark evaluates memory bandwidth by measuring how quickly data can be copied in memory. The results are reported in MB/s (Megabytes per second), reflecting the speed of memory operations.
+    > For memory performance, I used the command phoronix-test-suite run pts/ramspeed, specifically testing the "Copy Integer" benchmark. This benchmark evaluates memory bandwidth by measuring how quickly data can be copied in memory. The results are reported in MB/s (Megabytes per second), reflecting the speed of memory operations.
 
-For network performance, I utilized iPerf / iPerf3. The server was set up using iperf -s, while the client ran iperf -c <server_ip>. This setup measures TCP bandwidth and latency between instances. The results are displayed in Mbps (Megabits per second) for bandwidth and milliseconds (ms) for round-trip time (RTT), giving insights into network performance.
+    > For network performance, I utilized iPerf / iPerf3. The server was set up using iperf -s, while the client ran iperf -c <server_ip>. This setup measures TCP bandwidth and latency between instances. The results are displayed in Mbps (Megabits per second) for bandwidth and milliseconds (ms) for round-trip time (RTT), giving insights into network performance.
 
 2. (1 mark) Run your measurement tool on general purpose `t2.micro`, `t2.medium`, and `c5d.large` Linux instances, respectively, and find the performance differences among these instances. Launch all the instances in the **US East (N. Virginia)** region. Does the performance of EC2 instances increase commensurate with the increase of the number of vCPUs and memory resource?
 
