@@ -32,6 +32,7 @@
     | `c5d.large` |   8042 MIPS	              |   14734.68 MB/s                 |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI.
+    > The performance measurements indicate that as the instance type increases from t2.micro to c5d.large, both CPU and memory performance improve significantly. Specifically, the t2.micro instance has a CPU performance of 3940 MIPS and a memory performance of 11154.55 MB/s, while the t2.medium instance shows a slight increase to 4080 MIPS and 11298.89 MB/s. The c5d.large instance demonstrates a substantial enhancement, achieving 8042 MIPS in CPU performance and 14734.68 MB/s in memory performance. This trend clearly shows that the performance of EC2 instances does increase commensurate with the increase in the number of vCPUs and memory resources.
 
 ## Question 2: Measure the EC2 Network performance
 
@@ -47,6 +48,7 @@
     | `m5.large` - `t3.medium`  |   1020             |    0.489      |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. Note: Use private IP address when using iPerf within the same region. You'll need iPerf for measuring TCP bandwidth and Ping for measuring Round-Trip time.
+    > The network performance measurements reveal notable differences in TCP bandwidth and round-trip time (RTT) between various instance types. The t3.medium instances show a TCP bandwidth of 994 Mbps with an RTT of 1.204 ms. In contrast, m5.large instances exhibit improved performance with a bandwidth of 1930 Mbps and an RTT of 0.878 ms. The c5n.large instances demonstrate the highest bandwidth of 4960 Mbps and the lowest RTT of 0.152 ms. Additionally, when comparing different types, the t3.medium to c5n.large connection shows a bandwidth of 2320 Mbps and an RTT of 0.726 ms, while the m5.large to c5n.large connection achieves a bandwidth of 3230 Mbps and an RTT of 0.474 ms. Overall, these results indicate that network performance generally improves with higher instance types.
 
 2. (1 mark) What about the network performance for instances deployed in different regions? In order to answer this question, you need to complete the following table.
 
@@ -57,3 +59,4 @@
     | Oregon - Oregon           |    4950            |     0.146   |
  
     > Region: US East (N. Virginia), US West (Oregon). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. All instances are `c5.large`. Note: Use public IP address when using iPerf within the same region.
+    > The network performance measurements between instances deployed in different regions indicate significant variations in TCP bandwidth and round-trip time (RTT). The connection from N. Virginia to Oregon shows a TCP bandwidth of 23.1 Mbps with an RTT of 72.3 ms, highlighting the impact of geographical distance on network performance. In contrast, the connection within N. Virginia demonstrates a much higher bandwidth of 9300 Mbps and a minimal RTT of 0.098 ms, reflecting the benefits of local networking. The Oregon to Oregon connection also shows a robust bandwidth of 4950 Mbps and an RTT of 0.146 ms. Overall, these results illustrate that network performance is affected by both regional distance and local infrastructure capabilities.
