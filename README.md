@@ -15,13 +15,15 @@
 
 1. (1 mark) Report the name of measurement tool used in your measurements (you are free to choose *any* open source measurement software as long as it can measure CPU and memory performance). Please describe your configuration of the measurement tool, and explain why you set such a value for each parameter. Explain what the values obtained from measurement results represent (e.g., the value of your measurement result can be the execution time for a scientific computing task, a score given by the measurement tools or something else).
 
-    > The measurement tool used for the tests is the Phoronix Test Suite. For CPU performance, I executed the command phoronix-test-suite run pts/compress-7zip, which assesses the CPU's ability to perform compression tasks using the 7-Zip algorithm. This test is relevant because compression is a CPU-intensive operation, and the results are measured in MIPS (Million Instructions Per Second), providing a clear indication of processing capability.
+    > The measurement tool used for the tests is the Phoronix Test Suite.
 
-    > For memory performance, I used the command phoronix-test-suite run pts/ramspeed, specifically testing the "Copy Integer" benchmark. This benchmark evaluates memory bandwidth by measuring how quickly data can be copied in memory. The results are reported in MB/s (Megabytes per second), reflecting the speed of memory operations.
+    > For CPU performance, I used the command phoronix-test-suite run pts/compress-7zip to test the number of instructions processed per second(MIPS) by file compression using the 7-Zip algorithm. The results also show decompression performance, but I put the compression results as CPU performance for simplixity.
 
-    > For network performance, I utilized iPerf / iPerf3. The server was set up using iperf -s, while the client ran iperf -c <server_ip>. This setup measures TCP bandwidth and latency between instances. The results are displayed in Mbps (Megabits per second) for bandwidth and milliseconds (ms) for round-trip time (RTT), giving insights into network performance.
+    > For memory performance, I used the command phoronix-test-suite run pts/ramspeed, specifically testing the "Copy Integer" benchmark(option: AVERAGE, Integer). This benchmark evaluates memory bandwidth by measuring how quickly data can be copied in memory. The results are reported in MB/s (Megabytes per second), reflecting the speed of memory operations.
 
-2. (1 mark) Run your measurement tool on general purpose `t2.micro`, `t2.medium`, and `c5d.large` Linux instances, respectively, and find the performance differences among these instances. Launch all the instances in the **US East (N. Virginia)** region. Does the performance of EC2 instances increase commensurate with the increase of the number of vCPUs and memory resource?
+    > Both tests are in default to ensure standardized. MIPS is choosed to evaluate the performance of CPU and data copy speed is chooesd to represent the perfomance of memory.
+
+1. (1 mark) Run your measurement tool on general purpose `t2.micro`, `t2.medium`, and `c5d.large` Linux instances, respectively, and find the performance differences among these instances. Launch all the instances in the **US East (N. Virginia)** region. Does the performance of EC2 instances increase commensurate with the increase of the number of vCPUs and memory resource?
 
     In order to answer this question, you need to complete the following table by filling out blanks with the measurement results corresponding to each instance type.
 
@@ -50,7 +52,7 @@
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. Note: Use private IP address when using iPerf within the same region. You'll need iPerf for measuring TCP bandwidth and Ping for measuring Round-Trip time.
     
-    > The network performance measurements reveal notable differences in TCP bandwidth and round-trip time (RTT) between various instance types. The t3.medium instances show a TCP bandwidth of 994 Mbps with an RTT of 1.204 ms. In contrast, m5.large instances exhibit improved performance with a bandwidth of 1930 Mbps and an RTT of 0.878 ms. The c5n.large instances demonstrate the highest bandwidth of 4960 Mbps and the lowest RTT of 0.152 ms. Additionally, when comparing different types, the t3.medium to c5n.large connection shows a bandwidth of 2320 Mbps and an RTT of 0.726 ms, while the m5.large to c5n.large connection achieves a bandwidth of 3230 Mbps and an RTT of 0.474 ms. Overall, these results indicate that network performance generally improves with higher instance types.
+    > The network performance measurements reveal notable differences in TCP bandwidth and round-trip time between various instance types. The t3.medium instances show a TCP bandwidth of 994 Mbps with an RTT of 1.204 ms. In contrast, m5.large instances exhibit improved performance with a bandwidth of 1930 Mbps and an RTT of 0.878 ms. The c5n.large instances demonstrate the highest bandwidth of 4960 Mbps and the lowest RTT of 0.152 ms. Additionally, when comparing different types, the t3.medium to c5n.large connection shows a bandwidth of 2320 Mbps and an RTT of 0.726 ms, while the m5.large to c5n.large connection achieves a bandwidth of 3230 Mbps and an RTT of 0.474 ms. Overall, these results indicate that network performance generally improves with higher instance types.
 
 2. (1 mark) What about the network performance for instances deployed in different regions? In order to answer this question, you need to complete the following table.
 
